@@ -27,10 +27,10 @@ export class LoginPage{
         await this.buttonLogin.click()
     }
 
-    async loginWithCredential(email:string,passwrod:string,number:string,name:string){
+    async loginWithCredential(email:string,passwrod:string){
          await this.fillUsername(email)
          await this.fillPassword(passwrod)
-         await this.buttonLogin.click()   
+         await this.buttonLogin.click()  
     }
 
    /* async CheckLoginSucces(){

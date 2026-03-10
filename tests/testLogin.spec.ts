@@ -1,12 +1,11 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from './PageObjects/LoginPage';
 
+test('testLogin', async ({ page }) => {
+  await page.goto(process.env.URL)
+  //await page.goto('https://www.saucedemo.com/');
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+ const Login = new LoginPage(page)
+    await Login.loginWithCredential('standard_user','secret_sauce')
+    await page.pause()
 });
