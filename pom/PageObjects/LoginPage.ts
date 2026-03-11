@@ -41,6 +41,8 @@ export class LoginPage{
    }
 
     async MistakeLoginSuccessMessage(){
+        //Espera explicita
+        await expect(this.ButtonCheckDefault).toBeEnabled({ timeout: 10000 })
         await expect(this.ButtonCheckDefault).toBeVisible()
         
    }

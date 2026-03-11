@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 export const URLS = {
-        URLSauceDemon:process.env.SAUCEDEMOURL
+        URLSauceDemon:process.env.SAUCEDEMO_URL
 }
 
 export const Credentials = {
