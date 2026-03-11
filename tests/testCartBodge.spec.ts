@@ -1,0 +1,27 @@
+import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pom/PageObjects/LoginPage';
+import { InventoryPage } from '../pom/PageObjects/InventoryPage';
+import { CartBodgePage } from '../pom/PageObjects/CartBodgePage';
+import {URLS,Credentials} from '../pom/Data/Constants'
+
+test('test Validate CartBodge', async ({ page },testINFO) => {
+    await page.goto(URLS.URLSauceDemon)
+
+  const Login = new LoginPage(page)
+    await Login.loginWithCredential(Credentials.UsernameSauceDemo,Credentials.PasswordSauceDemo)
+    await page.waitForURL('**/inventory.html');
+
+  const Inventory = new InventoryPage(page)
+  const ItemSelect = await Inventory.ValidateItemSelect()
+    await page.locator('//*[@id="shopping_cart_container"]').click()
+    await page.waitForURL('**/cart.html');
+
+  const ItemName = new CartBodgePage(page)
+     await ItemName.ValidateItemCart(ItemSelect)
+
+      // captura que se adjunte al reporte 
+    await testINFO.attach('CartDobge',{
+        body: await page.screenshot(),
+        contentType: 'image/png'
+    })
+});

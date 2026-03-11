@@ -28,7 +28,6 @@ test('test Validate Item Select', async ({ page },testINFO) => {
 
   const Inventory = new InventoryPage(page)
     await Inventory.ValidateItemSelect()
-    await Inventory.ValidateItemAddCart()
 
       // captura que se adjunte al reporte 
     await testINFO.attach('ItemSelect',{
@@ -47,9 +46,10 @@ test('test Validate Item Add to Cart', async ({ page },testINFO) => {
     await page.waitForURL('**/inventory.html');
 
   const Inventory = new InventoryPage(page)
-    await Inventory.ValidateItemSelect()
+  await Inventory.ValidateItemSelect()
+  await Inventory.ValidateItemAddCart()
 
-    
+
       // captura que se adjunte al reporte 
     await testINFO.attach('ItemSelect to Cart',{
         body: await page.screenshot(),
