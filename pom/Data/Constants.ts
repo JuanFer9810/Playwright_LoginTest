@@ -9,3 +9,9 @@ export const Credentials = {
         UsernameSauceDemo : process.env.SAUCEDEMO_USER,
         PasswordSauceDemo : process.env.SAUCEDEMOURL_PASWWORD
 }
+
+export const UserInformation = {
+        FirstName : process.env.FIRSTNAME,
+        LastName : process.env.LASTNAME,
+        PostalCode : process.env.POSTALCODE
+}
