@@ -8,20 +8,27 @@ export class InventoryPage{
     constructor(page : Page){
 
         this.ListContainer = page.locator('//*[@class="inventory_container"]//*[@class="inventory_item"]')
-        this.ButtonAddCart = page.getByRole("button", {name : 'Add to cart', exact : true})
+        this.ButtonAddCart = page.locator('//*[@id="shopping_cart_container"]')
   
     }
 
      async ValidateInventory(){
-        await this.ListContainer.first().waitFor({ state: 'visible' })
+        await expect(this.ListContainer).toBeVisible({ timeout: 5000 })
         const countItems = await this.ListContainer.count()
         expect(countItems).toBeGreaterThan(0)
     }
 
-
-  async ClickButtonAddCart(){
-        await this.ButtonAddCart.click()
+       async ValidateItemSelect(){
+       const ItemsContainer = await this.ListContainer.all()
+       const RandomItem = Math.floor(Math.random() * ItemsContainer.length)
+       const ItemSelected = ItemsContainer[RandomItem]
+       const ButtonAddCart = ItemSelected.getByRole("button", {name : 'Add to cart', exact : true})
+       await ButtonAddCart.click()
     }
 
+    async ValidateItemAddCart(){
+        await expect(this.ButtonAddCart).toBeVisible({ timeout: 5000 })
+        await expect(this.ButtonAddCart).toHaveText('1')
+    }
 }
 
