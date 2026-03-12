@@ -19,7 +19,6 @@ test.describe('Inventory', () => {
     }); 
   });
 
-
   test('Validate inventory charge when page loads', async ({ page }) => {
     const Inventory = new InventoryPage(page)
     await Inventory.ValidateInventoryCharge()

@@ -25,7 +25,7 @@ test.describe('Validate Login', () => {
 
   test('Validate Login Error Message When using Invalid Credentials @smoke', async ({ page }) => {
     const Login = new LoginPage(page)
-    await Login.loginWithCredential(Credentials.UsernameSauceDemo,'password_bad')
+    await Login.loginWithCredential(Credentials.UsernameSauceDemo,Credentials.PasswordSauceDemo + '123')
     await Login.MistakeLoginSuccessMessage()
     });
 

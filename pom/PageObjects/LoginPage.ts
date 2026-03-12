@@ -9,7 +9,6 @@ export class LoginPage{
     private readonly ButtonCheckDefault : Locator
 
     constructor(page : Page){
-
         this.UsernameTextbox = page.getByRole("textbox", {name : 'Username', exact : true})
         this.PasswordTextbox = page.getByRole("textbox", {name : 'Password', exact : true})
         this.ButtonLogin = page.getByRole("button", {name : 'Login', exact : true})
@@ -34,7 +33,6 @@ export class LoginPage{
          await this.fillPassword(password)
          await this.ButtonLogin.click()  
     }
-    
         
    async ValidateLoginSuccessMessage(){
         await expect(this.SucessLoginButton).toBeVisible()
