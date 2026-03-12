@@ -1,8 +1,13 @@
 
 # Playwright
 node_modules/
-/test-results/
-/playwright-report/
+## Cuando va a poner todo un directorio, es mejor poner el nombre del directorio 
+## que va en la raiz del proyecto lo tiene que poner sin el / al inicio
+test-results/
+playwright-report/
+## lo que ponga con / va y lo busca en alguna carpeta contenedora de playwright y esos config son para cosas mas avanzadas pero se pueden dejar
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+## Por temas de seguridad todo lo que son credenciales, token, secrets, api-keys no se debe subir al repo
+.env

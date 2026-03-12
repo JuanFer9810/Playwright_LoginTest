@@ -3,7 +3,7 @@ import { LoginPage } from '../pom/PageObjects/LoginPage';
 import { InventoryPage } from '../pom/PageObjects/InventoryPage';
 import {URLS,Credentials} from '../pom/Data/Constants'
 
-test('test Validate Inventory', async ({ page },testINFO) => {
+test('Validate Inventory', async ({ page },testINFO) => {
   await page.goto(URLS.URLSauceDemon)
  
   const Login = new LoginPage(page)
